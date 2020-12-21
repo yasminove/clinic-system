@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development ./clinicsystem/frontend/src/index.js --output-path ./clinicsystem/frontend/static/frontend/",
+    "build": "webpack --mode production ./clinicsystem/frontend/src/index.js --output-path ./clinicsystem/frontend/static/frontend/"
   },
   "repository": {
     "type": "git",
