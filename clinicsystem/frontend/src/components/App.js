@@ -1,15 +1,35 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+
+import { Provider } from 'react-redux';
+import store from '../store';
+
+import Header from './layout/Header';
+import Dashboard from './Dashboard';
+import Alerts from './layout/Alerts';
+
+const alertOptions = {
+  timeout: 5000,
+  position: 'top center',
+};
 
 class App extends Component {
-    render(){
-        return(
-            <div>
-                <h3>hi react</h3>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <AlertProvider template={AlertTemplate} {...alertOptions}>
+          <div>
+            <Header />
+            <Alerts />
+            <Dashboard />
+          </div>
+        </AlertProvider>
+      </Provider>
+    );
+  }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
-
+ReactDOM.render(<App />, document.getElementById('app'));
